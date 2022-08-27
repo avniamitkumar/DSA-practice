@@ -62,6 +62,67 @@ int linear_search(struct array arr,int key)
     }
 }
 
+int get(struct array arr,int index)
+{
+    if(index>=0 && index<=arr.len)
+    {
+        return arr.a[index];
+    }
+    return -1;
+}
+
+void set(struct array *arr,int index,int x)
+{
+    if(index>=0 && index<=arr->len)
+    {
+        arr->a[index]=x;
+    }
+
+}
+
+int max(struct array arr,int n)
+{
+     int mmax=arr.a[0];
+    for(int i=0;i<arr.len;i++)
+    {
+        if(mmax>arr.a[i])
+        {
+            mmax=arr.a[i];
+        }
+    }
+    return mmax;
+}
+
+int min(struct array arr,int n)
+{
+     int mmin=arr.a[0];
+    for(int i=0;i<arr.len;i++)
+    {
+        if(mmin>arr.a[i])
+        {
+            mmin=arr.a[i];
+        }
+    }
+    return mmin;
+}
+int sum(struct array arr,int n)
+{
+    int s=0;
+    for(int i=0;i<n;i++)
+    {
+        s+=arr.a[i];
+    }
+    return s;
+
+}
+
+float avg(struct array arr,int n)
+{
+    return (float)sum(arr,n)/n;
+
+}
+
+
 
 
 int main()
@@ -76,8 +137,11 @@ int main()
     cout<<Delete(&arr,3)<<endl;
     display(arr);
     int key;
-    cin>>key;
-    cout<<linear_search(arr,key)<<endl;
-
+    //cin>>key;
+    //cout<<linear_search(arr,key)<<endl;
+    cout<<get(arr,1);
+    set(&arr,0,15);
+    display(arr);
+    cout<<max(arr,6);
     return 0;
 }
