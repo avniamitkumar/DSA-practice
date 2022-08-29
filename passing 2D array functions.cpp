@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
-void waveprint(int arr[][],int r,int c)
+void waveprint(int arr[][10],int row,int col)
 {
+    int r,c;
     cout<<"wave print"<<endl;
     for(c=0;c<col;c++)
     {
@@ -28,7 +29,7 @@ int main()
 {
     int row,col;
     cin>>row>>col;
-    int arr[row][col];
+    int arr[row][10];
     int r,c;
     int val=1;
     for(int i=0;i<row;i++)
@@ -47,8 +48,9 @@ int main()
         }
         cout<<endl;
     }
-    waveprint(arr,r,c);
+    waveprint(arr,row,col);
 
 
     return 0;
 }
+
