@@ -99,6 +99,51 @@ else
 
 }
 
+int del(struct node *p,int ind)
+{
+	struct node *q;
+	int i,x;
+	if(ind <0 || ind>length(first))
+	{
+		return -1;
+	}
+	if(ind==0)
+	{
+		p=first;
+		while(p->next!=first)
+		{
+			p=p->next;
+		}
+		x=first->data;
+		if(p==first)
+		{
+			delete first;
+			first=NULL;
+		}
+		else
+		{
+			p->next=first->next;
+			delete first;
+			first=p->next;
+		}
+	}
+	else
+	{
+		p=first;
+		for(int i=0;i<ind-2;i++)
+		{
+			p=p->next;
+		}
+		q=p->next;
+		x=q->data;
+		delete q;
+
+
+	}
+	return x;
+}
+
+
 int main()
 {
 	int arr[5]={12,34,56,78,22};
@@ -112,6 +157,8 @@ int main()
 	insert(first,2,14);
 	Display(first);
 	cout<<endl<<"length of linked list is "<<length(first)<<endl;
+	cout<<del(first,0)<<endl;
+	Display(first);
 
 	return 0;
 }
